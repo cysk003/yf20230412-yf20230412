@@ -2,7 +2,7 @@
 
 
 
-# **<font color=#ff0000>前言</font>**                   
+# **前言**                   
 
 
 
@@ -12,7 +12,7 @@
 
 
 
-###  <table><tr><td bgcolor=yellow>**<font color=#ff0000>特别声明</font>**</td></tr></table>      
+###  <table>**特别声明**</table>      
 
 
 1. 本项目内所有资源文件，禁止任何公众号、自媒体进行任何形式的转载、发布。  
@@ -36,7 +36,7 @@
 
 
 
-## `规则`    
+## **规则**   
 
 
 
@@ -58,7 +58,7 @@ https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite
 
 所有规则数据都来自互联网，感谢开源规则项目作者的辛勤付出
 
-# `外部资源 ` 
+## **外部资源**
 
 项目中资源来自互联网上其他开源项目（具体以不同目录的说明为准），这里主要进行一些整合和备份。对于此类资源，无法对使用过程中出现的任何问题进行解答，您需要联系原作者。
 
@@ -69,7 +69,7 @@ https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite
 
 
 
-# <table><tr><td bgcolor=yellow>**<font color=#ff0000>常用网站</font>**</td></tr></table>
+# <table><tr>**常用网站**</td></tr></table>
 
 
 
@@ -141,7 +141,7 @@ https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite
  * _**[IDM下载链接](https://www.ahhhhfs.com/11659/)**_
 
 
-# <font color=#ff0000> `Github`</font>
+## **Github**
 
 
 * ### [GitHub 入门教程1](https://www.5axxw.com/wiki/topic/r7f3ar)    
