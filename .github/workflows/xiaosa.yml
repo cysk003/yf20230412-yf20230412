@@ -9,8 +9,6 @@ on:
       - main
     paths:
       - "xiaosa/**" # 仅监控仓库根目录下的 xiaosa 目录及其子文件 才能触发推送
-    #paths-ignore:
-      #- "xiaosa/README.md"  # 可选：忽略 xiaosa 目录下的 README.md
 
 jobs:
   build:
