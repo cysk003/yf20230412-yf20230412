@@ -3,7 +3,7 @@ name: Update xiaosa
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 19 * * *" #每天凌晨三点半
+    - cron: "30 19 */3 * *" #每3天凌晨三点半
   push:
     branches:
       - main
