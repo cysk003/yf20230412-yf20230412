@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "30 19 */3 * *" #每3天凌晨三点半
-  push:
-    branches:
-      - main
-    paths:
-      - "xiaosa/**" # 仅监控仓库根目录下的 xiaosa 目录及其子文件 才能触发推送
+  #push:
+    #branches:
+      #- main
+    #paths:
+      #- "xiaosa/**" # 仅监控仓库根目录下的 xiaosa 目录及其子文件 才能触发推送
 
 jobs:
   build:
