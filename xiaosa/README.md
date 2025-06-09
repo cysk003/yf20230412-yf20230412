@@ -1,6 +1,6 @@
 ## 潇洒本地包没三天自动同步gitee仓库更新
 
-### 仓库地址：[潇洒gitee仓库](https://gitee.com/PizazzXS/another-d/tree/master)
+### [潇洒gitee仓库](https://gitee.com/PizazzXS/another-d/tree/master)
 
 ### 单线路
 ```
