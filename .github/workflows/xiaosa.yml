@@ -1,59 +1,63 @@
-name: Update xiaosa
+name: Auto Update xiaosa
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # 手动触发
+  repository_dispatch:  # 远程API触发
+    types: [trigger_update]
   schedule:
-    - cron: "30 19 */2 * *" #每2天在国际标准时间19点30分(北京时间+8，即 03:30)
-  #push:
-    #branches:
-      #- main
-    #paths:
-      #- "xiaosa/**" # 仅监控仓库根目录下的 xiaosa 目录及其子文件 才能触发推送
+    - cron: "0 13 */2 * *"  # 每2天在国际标准时间13点(北京时间+8，即21点)检查一次
 
 jobs:
-  build:
+  check-and-update:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Update xiaosa
+      - name: Check file hash
+        id: check_update
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # 使用绝对路径进入项目根目录
+          # 获取远程文件SHA哈希
+          REMOTE_HASH=$(curl -H "Authorization: token $GITHUB_TOKEN" -sL "https://api.github.com/repos/PizazzGY/NewTVBox/contents/%E5%8D%95%E7%BA%BF%E8%B7%AF.zip" | jq -r '.sha')
+          
+          # 获取本地记录的哈希
+          if [ -f "xiaosa/.last_hash" ]; then
+            LOCAL_HASH=$(cat xiaosa/.last_hash)
+          else
+            LOCAL_HASH="null"
+          fi
+
+          # 比较哈希值
+          if [ "$LOCAL_HASH" != "$REMOTE_HASH" ]; then
+            echo "需要更新=true" >> $GITHUB_OUTPUT
+            echo "new_hash=$REMOTE_HASH" >> $GITHUB_OUTPUT
+          else
+            echo "需要更新=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Execute update
+        if: steps.check_update.outputs.需要更新 == 'true'
+        run: |
           cd "$GITHUB_WORKSPACE"
-
-          # 如果 xiaosa 文件夹不存在，则创建它
-          if [ ! -d "xiaosa" ]; then
-            mkdir xiaosa
-          fi
-
-          # 进入 xiaosa 目录
+          mkdir -p xiaosa
           cd xiaosa
-
-          # 清空 xiaosa 目录，但保留 README.md
-          if [ -d "." ]; then
-            find . ! -name "README.md" -type f -exec rm -f {} +
-          fi
-
-          # 下载并解压文件
-          wget -q https://gh.2015888.xyz/raw.githubusercontent.com/PizazzGY/NewTVBox/refs/heads/main/单线路.zip -O xiaosa.zip
+          
+          find . ! -name "README.md" ! -name ".last_hash" -type f -delete
+          
+          wget -q "https://gh.2015888.xyz/raw.githubusercontent.com/PizazzGY/NewTVBox/main/单线路.zip" -O xiaosa.zip
           unzip -q xiaosa.zip
-
-          # 将 TVBoxOSC/tvbox/ 下的文件复制到 xiaosa/ 目录中
           cp -rf TVBoxOSC/tvbox/* ./
-
-          # 清理临时文件和目录
           rm -rf xiaosa.zip TVBoxOSC
-        shell: bash
+          
+          echo "${{ steps.check_update.outputs.new_hash }}" > .last_hash
 
-      - name: Git push changes
+      - name: Git commit and push
+        if: steps.check_update.outputs.需要更新 == 'true'
         run: |
           git config --local user.name "github-actions[bot]"
-          git config --local user.email "2015888+github-actions[bot]@users.noreply.github.com"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          if ! git diff-index --quiet HEAD --; then
-            git commit -m "潇洒更新 $(date +%Y%m%d%H%M)"
-            git push -f origin main
-          else
-            echo "没有文件更新，不执行 git push"
-          fi
+          git commit -m "自动更新: $(date +'%Y-%m-%d %H:%M')"
+          git push
