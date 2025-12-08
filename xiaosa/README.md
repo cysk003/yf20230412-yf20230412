@@ -1,12 +1,22 @@
 ## 潇洒本地包每2天，凌晨三点半自动同步gitee仓库更新
 
-### [潇洒gitee仓库](https://github.com/PizazzGY/NewTVBox/tree/main)
+### [潇洒github仓库](https://github.com/PizazzGY/NewTVBox/tree/main)
 
-### 单线路
+### 本地包单线路
 ```
 https://raw.githubusercontent.com/PizazzGY/NewTVBox/refs/heads/main/单线路.zip
 ```
-### 多仓线路
+### 本地包多线路
 ```
 https://raw.githubusercontent.com/PizazzGY/NewTVBox/refs/heads/main/多线路.zip
+```
+---
+
+### 单线路接口
+```
+https://9877.kstore.space/AnotherD/api.json
+```
+### 多线路接口
+```
+https://9877.kstore.space/AnotherDS/api.json
 ```
