@@ -1,6 +1,5 @@
-## 潇洒本地包每2天，凌晨三点半自动同步github仓库更新
----
-### [潇洒github仓库](https://github.com/PizazzGY/NewTVBox/tree/main)
+## 潇洒本地包每2天，凌晨三点半自动同步[github仓库更新](https://github.com/PizazzGY/NewTVBox/tree/main)
+
 
 ### 本地包单线路
 ```
