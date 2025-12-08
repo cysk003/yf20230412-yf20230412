@@ -31,14 +31,14 @@ jobs:
 
           # 比较哈希值
           if [ "$LOCAL_HASH" != "$REMOTE_HASH" ]; then
-            echo "需要更新=true" >> $GITHUB_OUTPUT
+            echo "need_update=true" >> $GITHUB_OUTPUT
             echo "new_hash=$REMOTE_HASH" >> $GITHUB_OUTPUT
           else
-            echo "需要更新=false" >> $GITHUB_OUTPUT
+            echo "need_update=false" >> $GITHUB_OUTPUT
           fi
 
       - name: Execute update
-        if: steps.check_update.outputs.需要更新 == 'true'
+        if: steps.check_update.outputs.need_update == 'true'
         run: |
           cd "$GITHUB_WORKSPACE"
           mkdir -p xiaosa
@@ -54,7 +54,7 @@ jobs:
           echo "${{ steps.check_update.outputs.new_hash }}" > .last_hash
 
       - name: Git commit and push
-        if: steps.check_update.outputs.需要更新 == 'true'
+        if: steps.check_update.outputs.need_update == 'true'
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
