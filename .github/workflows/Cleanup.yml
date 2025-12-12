@@ -3,7 +3,7 @@
 name: Cleanup Old Workflows (Public Repo Optimized)
 on:
   schedule:
-    - cron: '0 17 */3 * *'  # 每3天凌晨1点运行
+    - cron: '0 17 */10 * *'  # 每10天凌晨1点运行
   workflow_dispatch:
 
 permissions:
