@@ -5,7 +5,7 @@ on:
   repository_dispatch:  # 远程API触发
     types: [trigger_update]
   schedule:
-    - cron: "0 13 */2 * *"  # 每2天在国际标准时间13点(北京时间+8，即21点)检查一次
+    - cron: "0 13 */7 * *"  # 每7天在国际标准时间13点(北京时间+8，即21点)检查一次
 
 jobs:
   check-and-update:
