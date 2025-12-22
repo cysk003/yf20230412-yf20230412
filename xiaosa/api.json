@@ -77,6 +77,16 @@
             }
         },
         {
+            "key": "麒麟",
+            "name": "麒麟｜APP",
+            "type": 3,
+            "api": "csp_AppFox",
+            "ext": {
+                "host": "https://www.70yyw.cc",
+                "ver": 2
+            }
+        },
+        {
             "key": "木瓜",
             "name": "木瓜｜APP",
             "type": 3,
@@ -280,19 +290,6 @@
                 "url": "http://49.235.114.19:150",
                 "dataKey": "q7gj4f9br3fls6nh",
                 "dataIv": "q7gj4f9br3fls6nh"
-            }
-        },
-        {
-            "key": "星空",
-            "name": "星空｜APP",
-            "type": 3,
-            "searchable": 1,
-            "changeable": 1,
-            "api": "csp_AppGet",
-            "ext": {
-                "url": "http://43.154.4.75",
-                "dataKey": "HDk-7CnlK8SQUGLg",
-                "dataIv": "HDk-7CnlK8SQUGLg"
             }
         },
         {
@@ -706,7 +703,10 @@
             "changeable": 1,
             "ext": {
                 "site": [
-                    "https://woog.nxog.eu.org"
+                    "https://woog.nxog.eu.org",
+                    "https://woog.nxog.fun",
+                    "https://woog.nxog.eu.org",
+                    "https://woog.430520.xyz"
                 ]
             }
         },
@@ -740,6 +740,21 @@
             "ext": {
                 "site": [
                     "http://103.45.162.207:20720"
+                ]
+            }
+        },
+        {
+            "key": "夸克",
+            "name": "夸克｜4K",
+            "type": 3,
+            "api": "csp_PanWebShareCloudKK",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "changeable": 1,
+            "ext": {
+                "site": [
+                    "https://www.quarktv.cc"
                 ]
             }
         },
@@ -847,6 +862,16 @@
             }
         },
         {
+            "key": "锦鲤短剧",
+            "name": "锦鲤｜短剧",
+            "type": 3,
+            "api": "csp_JinliDJ",
+            "searchable": 1,
+            "changeable": 1,
+            "quickSearch": 1,
+            "filterable": 1
+        },
+        {
             "key": "笒鬼短剧",
             "name": "笒鬼｜短剧",
             "type": 3,
@@ -857,20 +882,30 @@
             "filterable": 1
         },
         {
-            "key": "星芽短剧",
-            "name": "星芽｜短剧",
+            "key": "百度短剧",
+            "name": "百度｜短剧",
             "type": 3,
-            "api": "./py/星芽短剧.py",
+            "api": "csp_BaiduDJ",
             "searchable": 1,
             "changeable": 1,
             "quickSearch": 1,
             "filterable": 1
         },
         {
-            "key": "甜圈短剧",
-            "name": "甜圈｜短剧",
+            "key": "星阁短剧",
+            "name": "星阁｜短剧",
             "type": 3,
-            "api": "./py/甜圈短剧.py",
+            "api": "csp_XinggeDJ",
+            "searchable": 1,
+            "changeable": 1,
+            "quickSearch": 1,
+            "filterable": 1
+        },
+        {
+            "key": "星芽短剧",
+            "name": "星芽｜短剧",
+            "type": 3,
+            "api": "./py/星芽短剧.py",
             "searchable": 1,
             "changeable": 1,
             "quickSearch": 1,
@@ -977,6 +1012,13 @@
             "searchable": 1,
             "quickSearch": 1,
             "filterable": 1
+        },
+        {
+            "key": "韩剧看看",
+            "name": "韩剧｜影视",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "ext": "./XBPQ/韩剧看看.json"
         },
         {
             "key": "莫小影视",
@@ -1812,6 +1854,11 @@
         }
     ],
     "parses": [
+        {
+            "name": "聚合",
+            "type": 3,
+            "url": "Web"
+        },
         {
             "name": "虾米",
             "type": 0,
