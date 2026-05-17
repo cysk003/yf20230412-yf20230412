@@ -4,8 +4,8 @@ on:
   workflow_dispatch:  # 手动触发
   repository_dispatch:  # 远程API触发
     types: [trigger_update]
-  schedule:
-    - cron: "0 13 */7 * *"  # 每7天在国际标准时间13点(北京时间+8，即21点)检查一次
+  #schedule:
+    #- cron: "0 13 */7 * *"  # 每7天在国际标准时间13点(北京时间+8，即21点)检查一次
 
 jobs:
   check-and-update:
