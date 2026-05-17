@@ -46,7 +46,7 @@ jobs:
           
           find . ! -name "README.md" ! -name ".last_hash" -type f -delete
           
-          wget -q "https://gh.2015888.xyz/raw.githubusercontent.com/PizazzGY/NewTVBox/main/单线路.zip" -O xiaosa.zip
+          wget -q "https://gh.2015888.xyz/raw.githubusercontent.com/PizazzGY/NewTVBox/main/local/单线路.zip" -O xiaosa.zip
           unzip -q xiaosa.zip
           cp -rf TVBoxOSC/tvbox/* ./
           rm -rf xiaosa.zip TVBoxOSC
